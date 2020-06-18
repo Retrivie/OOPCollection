@@ -16,7 +16,7 @@ namespace OOPCollection
     {
         public double Mesin { get; set; }
         public double PenggerakRoda { get; set; }
-        public override double Pajak() => Mesin * PenggerakRoda * 80;
+        public override double Pajak() => Mesin * PenggerakRoda * 60;
     }
 
     class MPV : Mobil
@@ -24,7 +24,7 @@ namespace OOPCollection
         public double Mesin { get; set; }
         public double PenggerakRoda { get; set; }
         public double KapasitasPenumpang { get; set; }
-        public override double Pajak() => Mesin * PenggerakRoda * KapasitasPenumpang * 80;
+        public override double Pajak() => Mesin * PenggerakRoda * KapasitasPenumpang * 60;
     }
 
     class SUV : Mobil
@@ -32,7 +32,7 @@ namespace OOPCollection
         public double Mesin { get; set; }
         public double PenggerakRoda { get; set; }
         public double JumlahSilinder { get; set; }
-        public override double Pajak() => Mesin * PenggerakRoda * JumlahSilinder * 80;
+        public override double Pajak() => Mesin * PenggerakRoda * JumlahSilinder * 60;
     }
 
     class Program
