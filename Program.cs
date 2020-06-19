@@ -74,9 +74,12 @@ namespace OOPCollection
 
             int i = 1;
 
+            Console.WriteLine("===BIAYA PAJAK MOBIL BERDASARKAN TIPE===\n");
+
             foreach (Mobil mobil in listMobil)
             {
-                Console.WriteLine("{0}\tKode: {1}\n\tTipe: {2}\n\tNama: {3}\n\tTahun: {4}\n\tPajak: Rp {5},00\n", i, mobil.Kode, mobil.Tipe, mobil.Nama, mobil.Tahun, mobil.Pajak());
+                
+                Console.WriteLine("{0}.\tKode\t: {1}\n\tTipe\t: {2}\n\tNama\t: {3}\n\tTahun\t: {4}\n\tPajak\t: Rp {5:N0},00\n", i, mobil.Kode, mobil.Tipe, mobil.Nama, mobil.Tahun, mobil.Pajak());
                 i++;
             }
 
