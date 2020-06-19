@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace OOPCollection
@@ -76,7 +76,7 @@ namespace OOPCollection
 
             foreach (Mobil mobil in listMobil)
             {
-                Console.WriteLine("{0}\tKode: {1}\n\tTipe: {2}\n\tNama: {3}\n\tPajak: Rp {4},00\n", i, mobil.Kode, mobil.Tipe, mobil.Nama, mobil.Pajak());
+                Console.WriteLine("{0}\tKode: {1}\n\tTipe: {2}\n\tNama: {3}\n\tTahun: {4}\n\tPajak: Rp {5},00\n", i, mobil.Kode, mobil.Tipe, mobil.Nama, mobil.Tahun, mobil.Pajak());
                 i++;
             }
 
