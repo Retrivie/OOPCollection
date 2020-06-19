@@ -43,7 +43,7 @@ namespace OOPCollection
             Sedan sedan = new Sedan();
             sedan.Kode = 19112710;
             sedan.Tipe = "Sedan";
-            sedan.Nama = "BMW 7 Series";
+            sedan.Nama = "BMW 750i";
             sedan.Tahun = 2020;
             sedan.Mesin = 4400;
             sedan.PenggerakRoda = 4;
