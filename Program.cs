@@ -3,36 +3,31 @@ using System.Collections.Generic;
 
 namespace OOPCollection
 {
-    abstract public class Mobil
+    abstract public class Karyawan
     {
-        public int Kode { get; set; }
-        public string Tipe { get; set; }
+        public string Nik { get; set; }
         public string Nama { get; set; }
-        public int Tahun { get; set; }
-        public abstract double Pajak();
+        public abstract double Gaji();
     }
 
-    class Sedan : Mobil
+    class Karyawantetap : Karyawan
     {
-        public double Mesin { get; set; }
-        public double PenggerakRoda { get; set; }
-        public override double Pajak() => Mesin * PenggerakRoda * 60;
+        public double GajiBulanan { get; set; }
+        public override double Gaji() => GajiBulanan;
     }
 
-    class MPV : Mobil
+    class Karyawanharian : Karyawan
     {
-        public double Mesin { get; set; }
-        public double PenggerakRoda { get; set; }
-        public double KapasitasPenumpang { get; set; }
-        public override double Pajak() => Mesin * PenggerakRoda * KapasitasPenumpang * 60;
+        public double UpahPerJam { get; set; }
+        public double JumlahJamKerja { get; set; }
+        public override double Gaji() => UpahPerJam * JumlahJamKerja;
     }
 
-    class SUV : Mobil
+    class Sales : Karyawan
     {
-        public double Mesin { get; set; }
-        public double PenggerakRoda { get; set; }
-        public double JumlahSilinder { get; set; }
-        public override double Pajak() => Mesin * PenggerakRoda * JumlahSilinder * 60;
+        public double JumlahPenjualan { get; set; }
+        public double Komisi { get; set; }
+        public override double Gaji() => JumlahPenjualan * Komisi;
     }
 
     class Program
@@ -40,46 +35,38 @@ namespace OOPCollection
         static void Main(string[] args)
         {
 
-            Sedan sedan = new Sedan();
-            sedan.Kode = 19112710;
-            sedan.Tipe = "Sedan";
-            sedan.Nama = "BMW 750i";
-            sedan.Tahun = 2020;
-            sedan.Mesin = 4400;
-            sedan.PenggerakRoda = 4;
+            Karyawantetap karyawanTetap = new Karyawantetap();
+            karyawanTetap.Nik = "19.11.2710";
+            karyawanTetap.Nama = "Reychandra";
+            karyawanTetap.GajiBulanan = 400000;
 
-            MPV mpv = new MPV();
-            mpv.Kode = 19112711;
-            mpv.Tipe = "MPV";
-            mpv.Nama = "Toyota Alphard";
-            mpv.Tahun = 2020;
-            mpv.Mesin = 3500;
-            mpv.PenggerakRoda = 2;
-            mpv.KapasitasPenumpang = 7;
+            Karyawanharian karyawanHarian = new Karyawanharian();
+            karyawanHarian.Nik = "19.11.2711";
+            karyawanHarian.Nama = "Tristan";
+            karyawanHarian.JumlahJamKerja = 12;
+            karyawanHarian.UpahPerJam = 100000;
 
-            SUV suv = new SUV();
-            suv.Kode = 19112712;
-            suv.Tipe = "SUV";
-            suv.Nama = "Mercedes-Benz GLS 500";
-            suv.Tahun = 2020;
-            suv.Mesin = 4700;
-            suv.PenggerakRoda = 4;
-            suv.JumlahSilinder = 8;
-            
+            Sales sales = new Sales();
+            sales.Nik = "19.11.2712";
+            sales.Nama = "Fahlevie";
+            sales.JumlahPenjualan = 10000;
+            sales.Komisi = 25000;
 
-            List<Mobil> listMobil = new List<Mobil>();
-            listMobil.Add(sedan);
-            listMobil.Add(mpv);
-            listMobil.Add(suv);
+
+            List<Karyawan> listKaryawan = new List<Karyawan>();
+
+            listKaryawan.Add(karyawanTetap);
+            listKaryawan.Add(karyawanHarian);
+            listKaryawan.Add(sales);
 
             int i = 1;
 
-            Console.WriteLine("===BIAYA PAJAK MOBIL BERDASARKAN TIPE===\n");
+            Console.WriteLine("===Karyawan===\n");
 
-            foreach (Mobil mobil in listMobil)
+            foreach (Karyawan karyawan in listKaryawan)
             {
-                
-                Console.WriteLine("{0}.\tKode\t: {1}\n\tTipe\t: {2}\n\tNama\t: {3}\n\tTahun\t: {4}\n\tPajak\t: Rp {5:N0},00\n", i, mobil.Kode, mobil.Tipe, mobil.Nama, mobil.Tahun, mobil.Pajak());
+
+                Console.WriteLine(" {0}.\tNIK: {1}\n\tNama: {2} \n\tGaji: {3:N0}\n", i, karyawan.Nik, karyawan.Nama, karyawan.Gaji());
                 i++;
             }
 
